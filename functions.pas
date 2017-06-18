@@ -2,16 +2,14 @@ function getTriggerAction(inputText: string): eTriggerAction;
 var text: string;
 begin
     result := trigNone;
-    text := lowercase(inputText);
+    text := lowercase(getpiece(inputText, ' ', 0));
     case (text) of
         '!vot', '!vote', '!votemap', '!votenext', '!votenextmap', '!next', '!nextmap':
-            result := trigVoteNextMap;
+            if (length(getpiece(inputText, ' ', 1)) >= 1) then
+                result := trigVoteSpecificMap
+            else
+                result := trigVoteNextMap;
     end;
-
-    if (result <> trigNone) then exit;
-
-    if (lowercase(getpiece(inputText, ' ', 0)) = '!vote') and (length(getpiece(inputText, ' ', 1)) >= 1) then
-        result := trigVoteSpecificMap;
 end;
 
 function getCommandAction(inputText: string): eCommandAction;
