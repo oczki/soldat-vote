@@ -4,7 +4,7 @@ begin
     result := trigNone;
     text := lowercase(getpiece(inputText, ' ', 0));
     case (text) of
-        '!vot', '!vote', '!votemap', '!votenext', '!votenextmap', '!next', '!nextmap':
+        '!v', '!vot', '!vote', '!votemap', '!votenext', '!votenextmap', '!next', '!nextmap':
             if (length(getpiece(inputText, ' ', 1)) >= 1) then
                 result := trigVoteSpecificMap
             else
