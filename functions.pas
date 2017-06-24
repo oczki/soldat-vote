@@ -58,6 +58,7 @@ begin
     vote.ongoing := false;
     vote.succeeded := false;
     vote.prompted := false;
+    vote.specAllowed := SpectatorsCanVote;
     vote.count := 0;
     vote.time := VoteDurationBase;
     vote.name := '';
@@ -148,7 +149,7 @@ begin
         exit;
     end;
 
-    if (not SpectatorsCanVote) and (getplayerstat(playerId, 'Team') = 5) then begin
+    if (not vote.specAllowed) and (getplayerstat(playerId, 'Team') = 5) then begin
         logError(0, 'Spectators have no voting rights.');
         logError(255, 'Not counting the vote (spectator).');
         result := false;

@@ -31,7 +31,12 @@ end;
 procedure OnJoinTeam(id, team: byte);
 begin
     if (getplayerstat(id, 'human')) then
-        player[id].active := true;
+        if ((vote.specAllowed) or (getplayerstat(id, 'team') <> 5)) then
+            player[id].active := true
+        else begin
+            player[id].active := false;
+            removeVote(id);
+        end;
 end;
 
 procedure OnMapChange(newmap: string);

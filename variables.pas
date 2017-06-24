@@ -9,6 +9,7 @@ type tVote = record
     ongoing: boolean;
     succeeded: boolean;
     prompted: boolean;
+    specAllowed: boolean;
     count: byte;
     time: integer;
     name: string;
