@@ -43,7 +43,7 @@ begin
 
     neededVotes := calcNeededVotes(calcCurrentPercentage());
     logWarning(0, 'Still need ' + inttostr(neededVotes) + ' more ' + plural(neededVotes, 'vote') +
-                  ' to change map to ' + vote.name + '.');
+                  ' to change map to ' + vote.name + '. (!vote)');
     vote.prompted := true;
 end;
 
