@@ -16,7 +16,7 @@ function getCommandAction(inputText: string): eCommandAction;
 var text: string;
 begin
     result := cmdNone;
-    text := lowercase(getpiece(text, ' ', 0));
+    text := lowercase(getpiece(inputText, ' ', 0));
     case (text) of
         '/map', '/nextmap', '/restart':
             result := cmdChangeMap;
